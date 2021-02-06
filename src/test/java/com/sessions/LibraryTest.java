@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
@@ -12,6 +16,30 @@ public class LibraryTest {
 
     public int totalBooksInLibrary () {
         return library.getBooks().size();
+    }
+
+    /* It will trigger before all tests */
+    @BeforeAll
+    public static void beforeAll () {
+        System.out.println("beforeAll");
+    }
+
+    /* It will trigger after all tests */
+    @AfterAll
+    public static void afterAll () {
+        System.out.println("afterAll");
+    }
+
+    /* It will trigger before each test */
+    @BeforeEach
+    public void beforeEach () {
+        System.out.println("beforeEach");
+    }
+
+    /* It will trigger after each test */
+    @AfterEach
+    public void afterEach () {
+        System.out.println("afterEach");
     }
 
     @Test

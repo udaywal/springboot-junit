@@ -111,6 +111,21 @@ public class LibraryTest {
         assertEquals(6.0, calculatedPrice);
         
     }
+    
+    @Test
+    public void when_we_returning_a_book_receipt_should_be_return () {
+
+        // RentedBook rentedBook = Mockito.mock(RentedBook.class);
+        RentedBook rentedBook = new RentedBook(library.getBooks().get(0));
+
+        Receipt recievedReceipt = library.returnReceipt(rentedBook, 15.0);
+
+        System.out.println(recievedReceipt.balanceToBeReturned);
+
+        assertNotNull(recievedReceipt);
+        assertEquals(5.01, recievedReceipt.balanceToBeReturned);
+        
+    }
 
 }
 

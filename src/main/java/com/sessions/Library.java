@@ -63,4 +63,8 @@ public class Library {
                 .unmodifiableList(books);
     }
 
+    public Receipt returnReceipt (RentedBook rentedBook, Double amount) {
+        return new Receipt(rentedBook.getBook(), amount);
+    }
+
 }

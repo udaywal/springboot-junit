@@ -1,3 +1,4 @@
+/* Intentional comment for the branch2 */
 package com.sessions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -123,8 +124,9 @@ public class LibraryTest {
         System.out.println(recievedReceipt.balanceToBeReturned);
 
         assertNotNull(recievedReceipt);
+
         assertEquals(5.01, recievedReceipt.balanceToBeReturned);
-        
+
     }
 
 }

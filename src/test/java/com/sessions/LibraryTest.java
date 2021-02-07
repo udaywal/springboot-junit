@@ -1,3 +1,4 @@
+/* Branch 1 - Added the comment */
 package com.sessions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

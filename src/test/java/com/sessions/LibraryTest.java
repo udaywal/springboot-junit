@@ -124,8 +124,9 @@ public class LibraryTest {
         System.out.println(recievedReceipt.balanceToBeReturned);
 
         assertNotNull(recievedReceipt);
+
         assertEquals(5.01, recievedReceipt.balanceToBeReturned);
-        
+
     }
 
 }

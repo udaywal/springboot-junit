@@ -4,11 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class LibraryTest {
 
@@ -77,6 +80,36 @@ public class LibraryTest {
 
         assertNull(searchedBook);
 
+    }
+
+    @Test
+    public void calculate_the_cost_for_rented_book_for_4_days_that_will_cost_2_dollars () {
+
+        RentedBook rentedBook = Mockito.mock(RentedBook.class);
+
+        LocalDate fourDaysBeforeToday = LocalDate.now().minusDays(4);
+
+        Mockito.when(rentedBook.getRentedDate()).thenReturn(fourDaysBeforeToday);
+
+        Double calculatedPrice = library.calculateBookRent(rentedBook);
+
+        assertEquals(2.0, calculatedPrice);
+
+    }
+
+    @Test
+    public void calculate_the_cost_for_rented_book_for_6_days_that_will_cost_6_dollars () {
+
+        RentedBook rentedBook = Mockito.mock(RentedBook.class);
+
+        LocalDate sixDaysBeforeToday = LocalDate.now().minusDays(6);
+
+        Mockito.when(rentedBook.getRentedDate()).thenReturn(sixDaysBeforeToday);
+
+        Double calculatedPrice = library.calculateBookRent(rentedBook);
+
+        assertEquals(6.0, calculatedPrice);
+        
     }
 
 }
